@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Saffron & Spice | Restaurant</title>
+  <meta name="description" content="Saffron & Spice - view our menu, order online, book a table, read reviews and find our branches.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <a href="#home" class="logo">🍛 Saffron<span>&</span>Spice</a>
+  <nav id="navLinks">
+    <a href="#menu">Menu</a>
+    <a href="#book">Book a Table</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#branches">Branches</a>
+    <a href="#location">Location</a>
+  </nav>
+  <div class="nav-actions">
+    <button class="cart-btn" id="openCart" aria-label="Open cart">🛒 <span id="cartCount">0</span></button>
+    <button class="burger" id="burger" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <p class="eyebrow">Authentic • Fresh • Family Owned</p>
+    <h1>Taste the tradition,<br>one plate at a time.</h1>
+    <p class="lead">Slow-cooked curries, tandoor specials and desserts made from scratch every day.</p>
+    <div class="hero-btns">
+      <a href="#menu" class="btn">Order Now</a>
+      <a href="#book" class="btn btn-outline">Book a Table</a>
+    </div>
+    <ul class="hero-stats">
+      <li><b>4.8★</b> Rating</li>
+      <li><b>3</b> Branches</li>
+      <li><b>30 min</b> Delivery</li>
+    </ul>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="section" id="menu">
+  <h2>Our Menu</h2>
+  <p class="sub">Pick your favourites and add them to your order.</p>
+  <div class="filters" id="filters"></div>
+  <div class="menu-grid" id="menuGrid"></div>
+</section>
+
+<!-- BOOKING -->
+<section class="section alt" id="book">
+  <h2>Book a Table</h2>
+  <p class="sub">Choose a branch, date and time, then tap an available table on the floor plan.</p>
+  <div class="book-wrap">
+    <form class="card book-form" id="bookForm">
+      <label>Branch
+        <select id="bBranch"></select>
+      </label>
+      <div class="row">
+        <label>Date <input type="date" id="bDate" required></label>
+        <label>Time
+          <select id="bTime"></select>
+        </label>
+      </div>
+      <label>Guests <input type="number" id="bGuests" min="1" max="12" value="2" required></label>
+      <label>Your name <input type="text" id="bName" placeholder="Full name" required></label>
+      <label>Phone <input type="tel" id="bPhone" placeholder="10-digit number" pattern="[0-9+ ]{10,14}" required></label>
+      <p class="selected-info" id="selectedInfo">No table selected</p>
+      <button class="btn" type="submit">Confirm Booking</button>
+    </form>
+
+    <div class="card floor-card">
+      <div class="legend">
+        <span><i class="dot free"></i>Available</span>
+        <span><i class="dot taken"></i>Booked</span>
+        <span><i class="dot pick"></i>Selected</span>
+      </div>
+      <div class="floor" id="floor"></div>
+    </div>
+  </div>
+  <div class="my-bookings" id="myBookings"></div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section" id="reviews">
+  <h2>What Guests Say</h2>
+  <p class="sub">Average rating: <b id="avgRating">–</b> from <span id="reviewCount">0</span> reviews</p>
+  <div class="review-grid" id="reviewGrid"></div>
+
+  <form class="card review-form" id="reviewForm">
+    <h3>Write a review</h3>
+    <div class="row">
+      <input type="text" id="rName" placeholder="Your name" required>
+      <div class="stars-input" id="starsInput" aria-label="Rating">
+        <span data-v="1">★</span><span data-v="2">★</span><span data-v="3">★</span><span data-v="4">★</span><span data-v="5">★</span>
+      </div>
+    </div>
+    <textarea id="rText" rows="3" placeholder="Tell us about your experience..." required></textarea>
+    <button class="btn" type="submit">Submit Review</button>
+  </form>
+</section>
+
+<!-- BRANCHES -->
+<section class="section alt" id="branches">
+  <h2>Our Branches</h2>
+  <p class="sub">Visit us at any of our locations.</p>
+  <div class="branch-grid" id="branchGrid"></div>
+</section>
+
+<!-- LOCATION -->
+<section class="section" id="location">
+  <h2>Find Us</h2>
+  <p class="sub" id="mapLabel">Main Branch</p>
+  <div class="map-wrap">
+    <iframe id="mapFrame" title="Restaurant location map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+  <div class="open-hours">
+    <div><b>Mon – Fri</b> 11:00 AM – 11:00 PM</div>
+    <div><b>Sat – Sun</b> 10:00 AM – 12:00 AM</div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="logo">🍛 Saffron<span>&</span>Spice</div>
+  <p>📞 +91 98765 43210 &nbsp;|&nbsp; ✉️ hello@saffronspice.example</p>
+  <p class="small">© <span id="year"></span> Saffron & Spice. All rights reserved.</p>
+</footer>
+
+<!-- CART DRAWER -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-head">
+    <h3>Your Order</h3>
+    <button class="close" id="closeCart" aria-label="Close">✕</button>
+  </div>
+  <div class="drawer-body" id="cartItems"></div>
+  <div class="drawer-foot" id="cartFoot">
+    <div class="totals">
+      <div><span>Subtotal</span><span id="subTotal">₹0</span></div>
+      <div><span>GST (5%)</span><span id="gst">₹0</span></div>
+      <div id="deliveryRow"><span>Delivery</span><span id="deliveryFee">₹0</span></div>
+      <div class="grand"><span>Total</span><span id="grandTotal">₹0</span></div>
+    </div>
+    <form id="orderForm">
+      <div class="toggle">
+        <label><input type="radio" name="type" value="delivery" checked> Delivery</label>
+        <label><input type="radio" name="type" value="pickup"> Pickup</label>
+      </div>
+      <select id="oBranch"></select>
+      <input type="text" id="oName" placeholder="Your name" required>
+      <input type="tel" id="oPhone" placeholder="Phone" pattern="[0-9+ ]{10,14}" required>
+      <textarea id="oAddress" rows="2" placeholder="Delivery address" required></textarea>
+      <button class="btn full" type="submit">Place Order</button>
+    </form>
+  </div>
+</aside>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <div class="tick">✓</div>
+    <h3 id="modalTitle"></h3>
+    <p id="modalText"></p>
+    <button class="btn" id="modalClose">Done</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
