@@ -12,22 +12,25 @@ const BRANCHES = [
     map: "80 Feet Road, Koramangala, Bengaluru" },
 ];
 
+const IMG_BASE = "https://images.unsplash.com/photo-";
+const imgUrl = (id) => `${IMG_BASE}${id}?auto=format&fit=crop&w=600&h=420&q=70`;
+
 const MENU = [
-  { id: 1, name: "Paneer Tikka", cat: "Starters", price: 260, veg: true, emoji: "🧀", desc: "Char-grilled cottage cheese marinated in spiced yoghurt." },
-  { id: 2, name: "Chicken 65", cat: "Starters", price: 290, veg: false, emoji: "🍗", desc: "Crispy, fiery South Indian fried chicken bites." },
-  { id: 3, name: "Veg Spring Rolls", cat: "Starters", price: 190, veg: true, emoji: "🥟", desc: "Golden rolls stuffed with seasoned vegetables." },
-  { id: 4, name: "Butter Chicken", cat: "Mains", price: 360, veg: false, emoji: "🍛", desc: "Tandoori chicken simmered in creamy tomato gravy." },
-  { id: 5, name: "Dal Makhani", cat: "Mains", price: 240, veg: true, emoji: "🥘", desc: "Black lentils slow-cooked overnight with butter and cream." },
-  { id: 6, name: "Palak Paneer", cat: "Mains", price: 270, veg: true, emoji: "🥬", desc: "Fresh spinach curry with soft paneer cubes." },
-  { id: 7, name: "Lamb Rogan Josh", cat: "Mains", price: 460, veg: false, emoji: "🍖", desc: "Kashmiri-style lamb in aromatic red gravy." },
-  { id: 8, name: "Hyderabadi Biryani", cat: "Rice & Breads", price: 340, veg: false, emoji: "🍚", desc: "Dum-cooked basmati layered with spiced chicken." },
-  { id: 9, name: "Veg Biryani", cat: "Rice & Breads", price: 260, veg: true, emoji: "🍲", desc: "Fragrant rice with seasonal vegetables and saffron." },
-  { id: 10, name: "Garlic Naan", cat: "Rice & Breads", price: 60, veg: true, emoji: "🫓", desc: "Tandoor-baked bread brushed with garlic butter." },
-  { id: 11, name: "Gulab Jamun", cat: "Desserts", price: 120, veg: true, emoji: "🍩", desc: "Warm milk dumplings soaked in rose-cardamom syrup." },
+  { id: 1, name: "Paneer Tikka", cat: "Starters", price: 260, veg: true, img: "1567188040759-fb8a883dc6d8", emoji: "🧀", desc: "Char-grilled cottage cheese marinated in spiced yoghurt." },
+  { id: 2, name: "Chicken 65", cat: "Starters", price: 290, veg: false, img: "1565557623262-b51c2513a641", emoji: "🍗", desc: "Crispy, fiery South Indian fried chicken bites." },
+  { id: 3, name: "Veg Spring Rolls", cat: "Starters", price: 190, veg: true, img: "1695712641569-05eee7b37b6d", emoji: "🥟", desc: "Golden rolls stuffed with seasoned vegetables." },
+  { id: 4, name: "Butter Chicken", cat: "Mains", price: 360, veg: false, img: "1603894584373-5ac82b2ae398", emoji: "🍛", desc: "Tandoori chicken simmered in creamy tomato gravy." },
+  { id: 5, name: "Dal Makhani", cat: "Mains", price: 240, veg: true, img: "1736680056444-02b10f16a245", emoji: "🥘", desc: "Black lentils slow-cooked overnight with butter and cream." },
+  { id: 6, name: "Palak Paneer", cat: "Mains", price: 270, veg: true, img: "1767114915936-745dd372f1d8", emoji: "🥬", desc: "Fresh spinach curry with soft paneer cubes." },
+  { id: 7, name: "Lamb Rogan Josh", cat: "Mains", price: 460, veg: false, img: "1545247181-516773cae754", emoji: "🍖", desc: "Kashmiri-style lamb in aromatic red gravy." },
+  { id: 8, name: "Hyderabadi Biryani", cat: "Rice & Breads", price: 340, veg: false, img: "1589302168068-964664d93dc0", emoji: "🍚", desc: "Dum-cooked basmati layered with spiced chicken." },
+  { id: 9, name: "Veg Biryani", cat: "Rice & Breads", price: 260, veg: true, img: "1599043513900-ed6fe01d3833", emoji: "🍲", desc: "Fragrant rice with seasonal vegetables and saffron." },
+  { id: 10, name: "Garlic Naan", cat: "Rice & Breads", price: 60, veg: true, img: "1697155406014-04dc649b0953", emoji: "🫓", desc: "Tandoor-baked bread brushed with garlic butter." },
+  { id: 11, name: "Gulab Jamun", cat: "Desserts", price: 120, veg: true, img: "1593701461250-d7b22dfd3a77", emoji: "🍩", desc: "Warm milk dumplings soaked in rose-cardamom syrup." },
   { id: 12, name: "Rasmalai", cat: "Desserts", price: 140, veg: true, emoji: "🍮", desc: "Soft cheese patties in chilled saffron milk." },
-  { id: 13, name: "Mango Lassi", cat: "Drinks", price: 110, veg: true, emoji: "🥭", desc: "Thick yoghurt shake with Alphonso mango." },
-  { id: 14, name: "Masala Chai", cat: "Drinks", price: 60, veg: true, emoji: "☕", desc: "Spiced Indian tea brewed with fresh ginger." },
-  { id: 15, name: "Fresh Lime Soda", cat: "Drinks", price: 80, veg: true, emoji: "🍋", desc: "Sweet, salty or mixed — your choice." },
+  { id: 13, name: "Mango Lassi", cat: "Drinks", price: 110, veg: true, img: "1546173159-315724a31696", emoji: "🥭", desc: "Thick yoghurt shake with Alphonso mango." },
+  { id: 14, name: "Masala Chai", cat: "Drinks", price: 60, veg: true, img: "1693302050215-66ae33076745", emoji: "☕", desc: "Spiced Indian tea brewed with fresh ginger." },
+  { id: 15, name: "Fresh Lime Soda", cat: "Drinks", price: 80, veg: true, img: "1634976245495-443328555f70", emoji: "🍋", desc: "Sweet, salty or mixed — your choice." },
 ];
 
 const SEEDED_REVIEWS = [
@@ -70,7 +73,7 @@ function renderMenu() {
   const items = MENU.filter((m) => activeCat === "All" || m.cat === activeCat);
   $("#menuGrid").innerHTML = items.map((m) => `
     <article class="dish">
-      <div class="dish-img">${m.emoji}</div>
+      <div class="dish-img">${m.img ? `<img src="${imgUrl(m.img)}" alt="${m.name}" loading="lazy" onerror="this.remove()">` : ""}<span class="fallback">${m.emoji}</span></div>
       <div class="dish-body">
         <div class="dish-top"><h3>${m.name}</h3><span class="veg ${m.veg ? "" : "non"}" title="${m.veg ? "Vegetarian" : "Non-vegetarian"}"></span></div>
         <p>${m.desc}</p>
@@ -110,7 +113,7 @@ function renderCart() {
   let sub = 0;
   $("#cartItems").innerHTML = ids.map((id) => {
     const m = MENU.find((x) => x.id == id); const line = m.price * cart[id]; sub += line;
-    return `<div class="cart-item"><span class="emoji">${m.emoji}</span>
+    return `<div class="cart-item"><span class="emoji">${m.img ? `<img src="${imgUrl(m.img)}" alt="" onerror="this.replaceWith(document.createTextNode('${m.emoji}'))">` : m.emoji}</span>
       <div class="info"><b>${m.name}</b><br><small>${money(m.price)} each</small></div>
       <div class="qty"><button data-d="-1" data-id="${id}">−</button><b>${cart[id]}</b><button data-d="1" data-id="${id}">+</button></div>
       <b>${money(line)}</b></div>`;
