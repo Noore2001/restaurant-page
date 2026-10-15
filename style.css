@@ -58,7 +58,10 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
 .menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px}
 .dish{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;transition:.2s}
 .dish:hover{transform:translateY(-4px)}
-.dish-img{font-size:4rem;text-align:center;padding:26px 0;background:linear-gradient(135deg,#fde9cf,#f9c99b)}
+.dish-img{position:relative;height:190px;display:grid;place-items:center;overflow:hidden;background:linear-gradient(135deg,#fde9cf,#f9c99b)}
+.dish-img .fallback{font-size:4rem}
+.dish-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .4s;background:#f3e3cf}
+.dish:hover .dish-img img{transform:scale(1.07)}
 .dish-body{padding:16px;display:flex;flex-direction:column;flex:1}
 .dish-top{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
 .dish h3{font-size:1.1rem}
@@ -136,7 +139,8 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
 .drawer-body{flex:1;overflow:auto;padding:14px 20px}
 .empty{text-align:center;color:var(--muted);margin-top:50px}
 .cart-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #f1e8dc}
-.cart-item .emoji{font-size:1.8rem}
+.cart-item .emoji{font-size:1.8rem;width:52px;height:52px;display:grid;place-items:center;flex:none}
+.cart-item .emoji img{width:100%;height:100%;object-fit:cover;border-radius:10px}
 .cart-item .info{flex:1}
 .cart-item .info small{color:var(--muted)}
 .qty{display:flex;align-items:center;gap:8px}
